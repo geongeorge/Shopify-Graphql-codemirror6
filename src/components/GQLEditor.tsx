@@ -12,6 +12,7 @@ const GQLEditor = () => {
   const [schema, setSchema] = useState<GraphQLSchema | undefined>();
 
   useEffect(() => {
+    // You need the json schema for this
     void fetch("/schema.json")
       .then((res) => res.text())
       .then((schema) => {
@@ -28,6 +29,7 @@ const GQLEditor = () => {
 
   return (
     <div className="w-full">
+      {/* Waiting for schema... */}
       {schema && (
         <ReactCodeMirror
           value={value}
